@@ -20,6 +20,7 @@ POSSIBILITIES = [
 ]
 
 def main(filename):
+  print('Parsing file:', filename)
   inputfile = open(filename, 'r')
   line = inputfile.readline()
   call_order = [int(i) for i in line.strip().split(',')]
@@ -81,3 +82,4 @@ def main(filename):
 
 if __name__ == '__main__':
   main('example_input.txt')
+  main('input.txt')
