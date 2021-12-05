@@ -50,8 +50,8 @@ def main(filename):
     # Bingo card with the numbers replaced by the turn each number is called.
     card_with_turns = [call_turn[number] for number in card]
 
-    # Find the max turn for each possible line in the card.
-    # The min of those possible Bingos is the first Bingo.
+    # Find the max turn for each possible line in the card, that is when it would be a Bingo.
+    # The min of those possible Bingos is the first Bingo for the card.
     first_bingo = min(
       max(card_with_turns[i] for i in range(start, start + 5*increment, increment))
       for (start, increment) in POSSIBILITIES)
