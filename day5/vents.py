@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import itertools
-import sys
 
 from collections import Counter
 
@@ -38,7 +37,8 @@ def main(filename, consider_diagonals):
     counts.update(zip(x_range, y_range))
 
   overlapping_vents = sum(1 for _, cnt in counts.items() if cnt >= 2)
-  print(filename, 'Number of locations with 2 or more overlapping vents, diagonals=', consider_diagonals, ':', overlapping_vents)
+  print(filename, 'Number of locations with 2 or more overlapping vents, diagonals=',
+   consider_diagonals, ':', overlapping_vents)
 
 if __name__ == '__main__':
   main('example_input.txt', False)
