@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import sys
 
@@ -36,14 +36,14 @@ def main(filename):
   
   while True:
     card = []
-    for i in range(5):
+    for _ in range(5):
       line = inputfile.readline()
       if not line:
-        print >> sys.stderr, 'ERROR: Unexpected EOF found!'
+        print('ERROR: Unexpected EOF found!', file=sys.stderr)
         exit(1)
       card_line = [int(i) for i in line.strip().split()]
       if len(card_line) != 5:
-        print >> sys.stderr, 'ERROR: Unexpected card width:', line
+        print('ERROR: Unexpected card width:', line, file=sys.stderr)
         exit(2)
       card.extend(card_line)
     
@@ -67,17 +67,17 @@ def main(filename):
     if not line:
       break
 
-  print 'Found the first bingo at turn:', min_first_bingo
-  print 'First bingo is in card:', [call_order[order] for order in min_bingo_card]
+  print('Found the first bingo at turn:', min_first_bingo)
+  print('First bingo is in card:', [call_order[order] for order in min_bingo_card])
   unmarked_numbers = [call_order[order] for order in min_bingo_card if order > min_first_bingo]
   score = call_order[min_first_bingo] * sum(unmarked_numbers)
-  print 'Score is:', score
+  print('Score is:', score)
 
-  print 'Found the last bingo at turn:', max_first_bingo
-  print 'Last bingo is in card:', [call_order[order] for order in max_bingo_card]
+  print('Found the last bingo at turn:', max_first_bingo)
+  print('Last bingo is in card:', [call_order[order] for order in max_bingo_card])
   unmarked_numbers = [call_order[order] for order in max_bingo_card if order > max_first_bingo]
   score = call_order[max_first_bingo] * sum(unmarked_numbers)
-  print 'Score is:', score
+  print('Score is:', score)
 
 if __name__ == '__main__':
   main('example_input.txt')
