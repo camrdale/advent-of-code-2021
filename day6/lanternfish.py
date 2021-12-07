@@ -37,9 +37,13 @@ def main(filename, days):
     # Also add them to the back of the queue (timer 6) along with the
     # ones that graduated from the new_fish queue (were timer 7).
     existing_fish.append(graduators + multipliers)
-    # print('After day', day, 'state is:', existing_fish, new_fish)
+    # print('After day', day, 'state is:', list(existing_fish) + list(new_fish))
 
-  print('Total number of fish:', sum(existing_fish) + sum(new_fish))
+  result = str(sum(existing_fish) + sum(new_fish))
+  if len(result) < 100:
+    print(filename, days, 'days, total number of fish:', result)
+  else:
+    print(filename, days, 'days, number of digits in total number of fish:', len(result))
 
 
 if __name__ == '__main__':
@@ -47,3 +51,4 @@ if __name__ == '__main__':
   main('input.txt', 80)
   main('example_input.txt', 256)
   main('input.txt', 256)
+  main('example_input.txt', 9999999)
